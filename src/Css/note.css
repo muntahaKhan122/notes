@@ -1,0 +1,21 @@
+.note{
+ background-color:#F2E661;
+ height: 250px;
+ border-radius: 10px;
+ display: flex;
+ flex-direction: column;
+ padding: 10px;
+ justify-content: space-between;
+}
+textarea{
+    border: none;
+    background-color: transparent;
+    empty-cells: hide;
+    resize: none;
+    outline: none;
+
+}
+.foot{
+ display: flex;
+ justify-content: end;
+}
