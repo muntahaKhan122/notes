@@ -44,3 +44,7 @@ Material UI is a library which provides React components which are used to impro
 ### React-Toastify
 
 React-toastify is a react package which is used to display alert messages, notifications and pop ups. They can be personalized to fit your UI requirments. 
+
+### UUID
+
+UUID (Universal Unique Identifier) is a javascript library which enables us to generate a unique key for an element or componenet. I have used UUID to generate an id for each note which the user saves. Edit and Delete functions utilize this id .
