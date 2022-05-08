@@ -1,5 +1,14 @@
 .note{
- background-color:#F2E661;
+ background-color:#FA90E3;
+ height: 250px;
+ border-radius: 10px;
+ display: flex;
+ flex-direction: column;
+ padding: 10px;
+ justify-content: space-between;
+}
+.newNote{
+    background-color:#95CACD;
  height: 250px;
  border-radius: 10px;
  display: flex;
@@ -13,9 +22,10 @@ textarea{
     empty-cells: hide;
     resize: none;
     outline: none;
-
 }
 .foot{
  display: flex;
- justify-content: end;
+ justify-content: space-between;
+ align-items: center;
+
 }

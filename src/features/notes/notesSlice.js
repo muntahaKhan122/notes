@@ -14,14 +14,21 @@ export const notesSlice = createSlice({
       state.value.push(action.payload);
     },
     deleteNote: (state,action) => {
+
      var ind= state.value.findIndex(obj => obj.id === action.payload);
      state.value.splice(ind,1);
     },
+    editNote: (state,action) => {
+
+      var ind= state.value.findIndex(obj => obj.id === action.payload.id);
+      state.value[ind].text=action.payload.text;
+     },
+
     
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { addNote , deleteNote } = notesSlice.actions
+export const { addNote , deleteNote , editNote } = notesSlice.actions
 
 export default notesSlice.reducer
