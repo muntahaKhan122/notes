@@ -4,15 +4,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import Button from '@mui/material/Button';
 import uuid from 'react-uuid';
-import { useSelector, useDispatch } from 'react-redux';
-import { addNote, deleteNote } from '../features/notes/notesSlice.js';
+import { useDispatch } from 'react-redux';
+import { addNote } from '../features/notes/notesSlice.js';
 
 function NewNote() {
 const [note,setNote]= useState();
 const dispatch = useDispatch();
 
 const saveNote = () => {
-  
+  console.log('click');
   if(note.length>0)
   {
     var Note= {text:note, id:uuid()};
@@ -29,7 +29,7 @@ const setText = (e) =>{
     <div className="newNote">
      <textarea rows='12' cols='10' onChange={setText} placeholder={'Add new note'} value={note}></textarea>
      <div className='foot'>
-     <Button variant="outlined" color="secondary" onClick={saveNote} >
+     <Button variant="outlined" color="secondary" onClick={()=>saveNote()} >
         Add
       </Button>
        </div>

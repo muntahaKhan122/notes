@@ -36,7 +36,7 @@ const saveNote = () =>{
     <div className="note">
      <textarea rows='12' cols='10' onChange={setText} placeholder={'Start Typing'} spellCheck={false} value={note} id={props.id}></textarea>
      <div className='foot'>
-      <Button variant="outlined" color="secondary" onClick={saveNote}  >
+      <Button variant="outlined" color="secondary" onClick={()=>saveNote()}  >
         Save
       </Button>
        <Button onClick={()=>delNote(props.id)} >

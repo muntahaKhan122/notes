@@ -39,7 +39,6 @@ function Note(props) {
 }
 
 function mapStateToProps(state) {
-  console.log('logggin',state.notes);
   return {
     notes:state.notes.value
   }

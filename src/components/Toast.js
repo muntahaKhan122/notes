@@ -9,7 +9,6 @@ export default function Toast({type,text,active,setToast}) {
   const  notifySuccess = () => {toast.success(text)};
   
   React.useEffect(()=>{
-  console.log(type,text,active);
     if(active){
       if(type==="success")
       {
