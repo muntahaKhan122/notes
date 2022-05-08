@@ -41,4 +41,6 @@ A Javascript library which is used to manage react state in a way that it is acc
 
 Material UI is a library which provides React components which are used to improve UI design. These components are easily customizable. I have utilized Grid Component to set structure of the main page.
 
+### React-Toastify
 
+React-toastify is a react package which is used to display alert messages, notifications and pop ups. They can be personalized to fit your UI requirments. 
