@@ -1,32 +1,32 @@
 import * as React from 'react';
+import 'react-toastify/dist/ReactToastify.css'; 
 import { ToastContainer, toast } from 'react-toastify';
 
-import 'react-toastify/dist/ReactToastify.css';
 export default function Toast({type,text,active,setToast}) {
+
   
-  const notify = () => toast({text});
-  const  notifySuccess = () => toast.success({text});
+  const notify = () => {toast(text)};
+  const  notifySuccess = () => {toast.success(text)};
   
   React.useEffect(()=>{
   console.log(type,text,active);
     if(active){
       if(type==="success")
       {
-        console.log("toast");
         notifySuccess();
       }
       else
       {
-        console.log("toast");
+
         notify();
       }
       setTimeout(() => {
         setToast(false);
-      }, 2000);
+      }, 3000);
     }
 
 
-  },[active,type]);
+  },[active,type,text]);
   
   
     return (

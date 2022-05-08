@@ -6,15 +6,11 @@ import Button from '@mui/material/Button';
 import uuid from 'react-uuid';
 import { useSelector, useDispatch } from 'react-redux';
 import { editNote, deleteNote } from '../features/notes/notesSlice.js';
-import Toast from './Toast';
 
 
-function Notes({id,text}) {
-const [note,setNote]= useState(text);
+function Notes(props) {
+const [note,setNote]= useState(props.text);
 const dispatch = useDispatch();
-const [toast,setToast]=useState(false);
-const [toastText,setToastText]=useState();
-const [toastType,setToastType]=useState();
 
 
 const setText = (e) =>{
@@ -22,28 +18,28 @@ const setText = (e) =>{
   setNote(e.target.value);
 }
 const delNote = (id) =>{
-  setToastText('Deleted!');
-  setToastType("del");
+  props.setToastText('Deleted!');
+  props.setToastType("del");
   dispatch(deleteNote(id));
-  setToast(true);
+  props.setToast(true);
 }
 const saveNote = () =>{
-  setToastText('Saved successfully');
-  setToastType("success");
-  dispatch(editNote({id:id,text:note}));
-  setToast(true);
+  props.setToastText('Saved successfully');
+  props.setToastType("success");
+  dispatch(editNote({id:props.id,text:note}));
+  props.setToast(true);
 }
 
   return (
     <>
-    <Toast active={toast} setToast={setToast} type={toastType} text={toastText}/>
+    
     <div className="note">
-     <textarea rows='12' cols='10' onChange={setText} placeholder={'Start Typing'} spellCheck={false} value={note} id={id}></textarea>
+     <textarea rows='12' cols='10' onChange={setText} placeholder={'Start Typing'} spellCheck={false} value={note} id={props.id}></textarea>
      <div className='foot'>
       <Button variant="outlined" color="secondary" onClick={saveNote}  >
         Save
       </Button>
-       <Button onClick={()=>delNote(id)} >
+       <Button onClick={()=>delNote(props.id)} >
          <FontAwesomeIcon className='delBtn' icon={faTrash} color={'#9c27b0'} size={"lg"} />
        </Button>
        </div>
