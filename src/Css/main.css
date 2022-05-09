@@ -1,0 +1,23 @@
+.note-dark{
+
+    background-color: #893B87;
+    height: 250px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: space-between;
+   
+}
+.textarea-dark{
+    color:white;
+}
+.newNote-dark{
+    background-color:#4E8CBC;
+    height: 250px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: space-between;
+}
