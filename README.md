@@ -52,3 +52,7 @@ UUID (Universal Unique Identifier) is a javascript library which enables us to g
 ### Theme Color
 
 I have used Redux to create a dark and light mode which changes the color mode of the app. 
+
+### Search
+
+A simple search function is implemented in js. It filters out the notes which includes the text user wants to search.
