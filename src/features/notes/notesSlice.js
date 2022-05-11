@@ -22,6 +22,7 @@ export const notesSlice = createSlice({
 
       var ind= state.value.findIndex(obj => obj.id === action.payload.id);
       state.value[ind].text=action.payload.text;
+      state.value[ind].title=action.payload.title;
      },
 
     

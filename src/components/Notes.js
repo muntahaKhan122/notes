@@ -35,6 +35,7 @@ const saveNote = () =>{
   props.setToastText('Saved successfully');
   props.setToastType("success");
   dispatch(editNote({title:title,id:props.id,text:note}));
+  console.log(title);
   props.setToast(true);
 }
 
