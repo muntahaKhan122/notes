@@ -31,11 +31,11 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## Notes App
 
-A basic notes app in which you can create new notes , delete and edit existing ones. The app uses following libraries:
+A basic notes app in which you can create new notes , delete and edit existing ones. The app uses following libraries and features:
 
 ### Redux
 
-A Javascript library which is used to manage react state in a way that it is accessible to any component in react application. In this application I used redux to store the data temporarily as there is no backened integrated.
+A Javascript library which is used to manage react state in a way that it is accessible to any component in react application. In this application I used redux to store the data temporarily as there is no backened integrated. Redux is also used to implement a theme color feature.
 
 ### MUI
 
@@ -48,3 +48,7 @@ React-toastify is a react package which is used to display alert messages, notif
 ### UUID
 
 UUID (Universal Unique Identifier) is a javascript library which enables us to generate a unique key for an element or componenet. I have used UUID to generate an id for each note which the user saves. Edit and Delete functions utilize this id .
+
+### Theme Color
+
+I have used Redux to create a dark and light mode which changes the color mode of the app. 
