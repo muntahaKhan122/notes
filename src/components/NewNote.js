@@ -8,20 +8,31 @@ import { styled } from '@mui/material/styles';
 import { blue } from '@mui/material/colors';
 
 function NewNote({light}) {
-const [note,setNote]= useState();
+const [note,setNote]= useState('');
+const [title,setTitle]=useState('');
 const dispatch = useDispatch();
 
 const saveNote = () => {
   
   if(note.length>0)
   {
-    var Note= {text:note, id:uuid()};
+
+    var Note= { title:title,text:note,id:uuid() };
     setNote('');
-  dispatch( addNote(Note));
+    setTitle('');
+    dispatch( addNote(Note) );
   }
 }
 const setText = (e) =>{
-  setNote(e.target.value);
+  if(e.target.type==='textarea')
+  {
+    setNote(e.target.value);
+  }
+  else
+  {
+
+    setTitle(e.target.value);
+  }
 }
 
 const ColorButton = styled(Button)(({ theme }) => ({
@@ -35,6 +46,7 @@ const ColorButton = styled(Button)(({ theme }) => ({
 
   return (
     <div className={light==="light"?"newNote":"newNote-dark"}>
+      <input type="text" className={light==='light'?'title':'title dark'} placeholder='Title' onChange={setText} value={title}/>
      <textarea className={light==="light"?'':'textarea-dark'} rows='12' cols='10' onChange={setText} placeholder={'Add new note'} value={note}></textarea>
      <div className='foot'>
      <ColorButton variant="outlined" color="secondary" onClick={()=>saveNote()} >

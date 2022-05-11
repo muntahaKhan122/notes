@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../Css/note.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faSpaghettiMonsterFlying, faTrash } from '@fortawesome/free-solid-svg-icons';
 import Button from '@mui/material/Button';
 import { useDispatch } from 'react-redux';
 import { editNote, deleteNote } from '../features/notes/notesSlice.js';
@@ -11,12 +11,19 @@ import { purple } from '@mui/material/colors';
 
 function Notes(props) {
 const [note,setNote]= useState(props.text);
+const [title,setTitle]= useState(props.title);
 const dispatch = useDispatch();
 
 
 const setText = (e) =>{
-
+ if(e.target.type === 'textarea')
+ {
   setNote(e.target.value);
+ }
+ else{
+   setTitle(e.target.value);
+ }
+
 }
 const delNote = (id) =>{
   props.setToastText('Deleted!');
@@ -27,7 +34,7 @@ const delNote = (id) =>{
 const saveNote = () =>{
   props.setToastText('Saved successfully');
   props.setToastType("success");
-  dispatch(editNote({id:props.id,text:note}));
+  dispatch(editNote({title:title,id:props.id,text:note}));
   props.setToast(true);
 }
 
@@ -44,7 +51,9 @@ const ColorButton = styled(Button)(({ theme }) => ({
     <>
     
     <div className={props.light==='light'?"note":"note-dark"}>
-     <textarea className={props.light!=='light'?'textarea-dark':''} rows='12' cols='10' onChange={setText} placeholder={'Start Typing'} spellCheck={false} value={note} id={props.id}></textarea>
+     <input className={props.light==='light'?'title':'title dark'} type="text" value={title} onChange={setText}/>
+     <textarea className={props.light!=='light'?'textarea-dark':''} rows='12' cols='10' 
+     onChange={setText} placeholder={'Start Typing'} spellCheck={false} value={note} id={props.id}></textarea>
      <div className='foot'>
       <ColorButton variant="outlined"  onClick={()=>saveNote()}  >
         Save
